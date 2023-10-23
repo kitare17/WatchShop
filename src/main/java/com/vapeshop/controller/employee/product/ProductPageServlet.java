@@ -2,9 +2,11 @@ package com.vapeshop.controller.employee.product;
 
 import com.vapeshop.entity.Product;
 import com.vapeshop.respository.employee.ProductRespository;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,10 +25,10 @@ public class ProductPageServlet extends HttpServlet {
                 pageNumber= Integer.parseInt(  request.getParameter("page"))  ;
 
             if( pageNumber>maxPageAmount||pageNumber<=0) pageNumber=1;
-        ArrayList<Product> list=ProductRespository.getProductPage(pageNumber);
+        ArrayList<Product> listProduct=ProductRespository.getProductPage(pageNumber);
         request.setAttribute("maxPage",maxPageAmount);
         request.setAttribute("page",pageNumber);
-        request.setAttribute("listProduct",list);
+        request.setAttribute("listProduct",listProduct);
         request.getRequestDispatcher("dashboard/product-management.jsp").forward(request,response);
 
     }
