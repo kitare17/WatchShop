@@ -23,9 +23,50 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="include/header-product-management-dashboard.jsp" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page import="java.time.format.DateTimeFormatter" %>
+
+
+<%@include file="include/header-product-management-dashboard.jsp"%>
+<style>
+    .cards-service {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+
+
+
+    .cards-service .card-service {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        height: 200px;
+        width: 200px;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        transition: 400ms;
+    }
+
+    .cards-service .card-service p.tip {
+        font-size: 1em;
+        font-weight: 700;
+    }
+
+    .cards-service .card-service p.second-text {
+        font-size: .7em;
+    }
+
+    .cards-service .card-service:hover {
+        transform: scale(1.2, 1.2);
+    }
+
+    .cards-service:hover > .card-service:not(:hover) {
+        filter: blur(10px);
+        transform: scale(0.9, 0.9);
+    }
+</style>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
@@ -35,9 +76,9 @@
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Quản lí voucher</li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Quản lí tài khoản</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Quản lí voucher</h6>
+                <h6 class="font-weight-bolder mb-0">Quản lí tài khoản</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -160,135 +201,32 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>Bảng vourcher (Trang ${page}/${maxPage})</h6>
-                        <a href="voucher-create" class="fa-solid fa-circle-plus fa-xl d-flex flex-row-reverse"
-                           style="color: #d31798;"> <span style="font-family: Courier;font-size: 20px;">Mã giảm giá mới</span>
-                        </a>
+                        <h4 style="font-family: Calibri;" class="text-center"> <i class="fa-solid fa-users-between-lines fa-2xl" style="color: #1cca47;"></i> Quản lí tài khoản <i class="fa-solid fa-users-between-lines fa-2xl" style="color: #1cca47;"></i></h4>
+
                     </div>
-                    <div class="card-body px-0 pt-0 pb-2">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                <tr>
+                    <div class="card-body px-0 pt-0 pb-2 mt-5">
+                        <div class="cards-service d-flex justify-content-around mb-5 ">
+                            <a class="card-service red bg-blue bg-secondary" href="employee-account-management">
+                                <p class="tip" >Nhân viên</p>
+                                <i class="fa-solid fa-user-tie fa-2xl"></i>
+                            </a>
 
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên
-                                        Voucher
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Phần trăm được giảm
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Ngày tạo
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Ngày kết thúc
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Trạng thái
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <c:forEach items="${listVoucher}" var="v">
-                                    <%--    String id, String voucherName, double voucherPercent, LocalDateTime createDate, LocalDateTime closeDate, char status--%>
-
-                                    <tr>
-
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">${v.id}</h6>
-                                                    <p class="text-xs text-secondary mb-0">${v.voucherName}</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0 text-left">
-                                                    <fmt:formatNumber var="price" value=" ${v.voucherPercent*100}" maxFractionDigits="1"></fmt:formatNumber>
-                                                  ${price} %</p>
-
-                                        </td>
-
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">
-                                                ${v.createDate.format(DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd"))}
-                                             </span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">
-                                                    ${v.closeDate.format(DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd"))}
-                                            </span>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-<%--                                                ${v.status}${(v.status+'') eq ('1').charAt(0)}--%>
-                                                    <c:if test="${(v.status+'') eq ('1').charAt(0)}">
-                                                        <span class="badge badge-sm bg-gradient-success ">Có thể áp dụng</span>
-                                                    </c:if>
-                                                    <c:if test="${(v.status+'') eq ('0').charAt(0)}">
-                                                        <span class="badge badge-sm bg-gradient-danger ">Dừng áp dụng</span>
-                                                    </c:if>
+                            <a class="card-service green bg-success" href="customer-account-management">
+                                <p class="tip">Khách hàng</p>
+                                <i class="fa-solid fa-user-shield fa-2xl"></i>
+                            </a>
+                        </div>
 
 
-                                        </td>
-                                        <td class="align-middle">
-                                            <a href="product-editor?productID=${v.id}"
-                                               class="text-secondary font-weight-bold text-xs btn btn-warning"
-                                               data-toggle="tooltip" data-original-title="Edit user">
-                                                Chỉnh sửa
-                                            </a>
-                                        </td>
-                                    </tr>
-
-
-                                </c:forEach>
-
-                                </tbody>
-                            </table>
-                            <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                                <ul class="pagination">
-
-                                    <c:if test="${page>1}">
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="voucher-page?page=${page-1}"
-                                               aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                        </li>
-
-                                    </c:if>
-
-                                    <c:forEach var="i" begin="${page-1}" end="${page+1}">
-                                        <c:if test="${i>=1&&i<=maxPage}">
-                                            <li class="page-item"><a class="page-link"
-                                                                     href="voucher-page?page=${i}">${i}</a></li>
-                                        </c:if>
-
-                                    </c:forEach>
-
-
-                                    <c:if test="${page<maxPage}">
-                                        <li class="page-item">
-
-                                            <a class="page-link" href="voucher-page?page=${page+1}"
-                                               aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                        </li>
-                                    </c:if>
-
-                                </ul>
-                            </nav>
+                        <div class="mx-5 mb-2">
+                            <a href="product-management"><i class="fa-solid fa-arrow-left-long fa-2xl" style="color: #2e2bd4;"></i> Quay lại quản lí sản phẩm</a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
+    </div>
 
-        <%@ include file="include/footer-dashboard.jsp" %>
+    <%@include file="include/footer-dashboard.jsp"%>
+

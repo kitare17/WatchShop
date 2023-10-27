@@ -23,9 +23,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="include/header-product-management-dashboard.jsp" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page import="java.time.format.DateTimeFormatter" %>
+
+
+<%@include file="include/header-product-management-dashboard.jsp" %>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
@@ -35,9 +35,15 @@
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Quản lí voucher</li>
+                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="product-management">Quản lí
+                        tài khoản</a>
+                    </li>
+
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Quản lí tài khoản nhân
+                        viên
+                    </li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Quản lí voucher</h6>
+                <h6 class="font-weight-bolder mb-0">Quản lí tài khoản nhân viên</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -160,135 +166,111 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>Bảng vourcher (Trang ${page}/${maxPage})</h6>
-                        <a href="voucher-create" class="fa-solid fa-circle-plus fa-xl d-flex flex-row-reverse"
-                           style="color: #d31798;"> <span style="font-family: Courier;font-size: 20px;">Mã giảm giá mới</span>
-                        </a>
+                        <h4 style="font-family: Calibri;" class="text-center"><i
+                                class="fa-solid fa-kiwi-bird fa-spin-pulse" style="color: #b01cba;"></i> Thêm nhân viên
+                            mới <i class="fa-solid fa-kiwi-bird fa-spin-pulse" style="color: #b01cba;"></i></h4>
+
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                <tr>
-
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên
-                                        Voucher
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Phần trăm được giảm
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Ngày tạo
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Ngày kết thúc
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Trạng thái
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <c:forEach items="${listVoucher}" var="v">
-                                    <%--    String id, String voucherName, double voucherPercent, LocalDateTime createDate, LocalDateTime closeDate, char status--%>
-
-                                    <tr>
-
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">${v.id}</h6>
-                                                    <p class="text-xs text-secondary mb-0">${v.voucherName}</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0 text-left">
-                                                    <fmt:formatNumber var="price" value=" ${v.voucherPercent*100}" maxFractionDigits="1"></fmt:formatNumber>
-                                                  ${price} %</p>
-
-                                        </td>
-
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">
-                                                ${v.createDate.format(DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd"))}
-                                             </span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">
-                                                    ${v.closeDate.format(DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd"))}
-                                            </span>
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-<%--                                                ${v.status}${(v.status+'') eq ('1').charAt(0)}--%>
-                                                    <c:if test="${(v.status+'') eq ('1').charAt(0)}">
-                                                        <span class="badge badge-sm bg-gradient-success ">Có thể áp dụng</span>
-                                                    </c:if>
-                                                    <c:if test="${(v.status+'') eq ('0').charAt(0)}">
-                                                        <span class="badge badge-sm bg-gradient-danger ">Dừng áp dụng</span>
-                                                    </c:if>
 
 
-                                        </td>
-                                        <td class="align-middle">
-                                            <a href="product-editor?productID=${v.id}"
-                                               class="text-secondary font-weight-bold text-xs btn btn-warning"
-                                               data-toggle="tooltip" data-original-title="Edit user">
-                                                Chỉnh sửa
-                                            </a>
-                                        </td>
-                                    </tr>
-
-
-                                </c:forEach>
-
-                                </tbody>
-                            </table>
-                            <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                                <ul class="pagination">
-
-                                    <c:if test="${page>1}">
-
-                                        <li class="page-item">
-                                            <a class="page-link" href="voucher-page?page=${page-1}"
-                                               aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                        </li>
-
-                                    </c:if>
-
-                                    <c:forEach var="i" begin="${page-1}" end="${page+1}">
-                                        <c:if test="${i>=1&&i<=maxPage}">
-                                            <li class="page-item"><a class="page-link"
-                                                                     href="voucher-page?page=${i}">${i}</a></li>
-                                        </c:if>
-
-                                    </c:forEach>
-
-
-                                    <c:if test="${page<maxPage}">
-                                        <li class="page-item">
-
-                                            <a class="page-link" href="voucher-page?page=${page+1}"
-                                               aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                        </li>
-                                    </c:if>
-
-                                </ul>
-                            </nav>
-                        </div>
+                        <form class="row g-3 needs-validation p-4" novalidate action="employee-add-account"
+                              method="post"     >
+                            <%--                            User(id, userName, passWord, fullName, email, role, phone, status, avatarImg, address);--%>
+                            <div class="col-12">
+                                <label for="userName" class="form-label">Username<span
+                                        class="text-danger"> *</span></label>
+                                <div class="input-group has-validation">
+                                    <input type="text" pattern="^[a-z]\w{6,20}$" class="form-control"
+                                           placeholder="Nhập username"
+                                           id="userName" name="userName"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Username phải bắt đầu bằng chữ cái thường không dấu, tối thiểu 6 kí tự và tối đa
+                                        20 kí tự
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="passWord" class="form-label">Mật khẩu<span
+                                        class="text-danger"> *</span></label>
+                                <div class="input-group has-validation">
+                                    <input type="text" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,50}$"
+                                           class="form-control" placeholder="Nhập mật khẩu"
+                                           id="passWord" name="passWord"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Mật khẩu phải chứa ít nhất một chữ cái in hoa, một chữ cái in thường, một số và
+                                        có độ dài từ 7 đến 50 kí tự
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="fullName" class="form-label">Tên nhân viên<span
+                                        class="text-danger"> *</span></label>
+                                <div class="input-group has-validation">
+                                    <input type="text" class="form-control" pattern="^[a-zA-ZaAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆ
+fFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ\s]{1,50}$" placeholder="Nhập tên nhân viên"
+                                           id="fullName" name="fullName"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Tên không được bỏ trống có độ dài tối đa là 50 kí tự
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email<span
+                                        class="text-danger"> *</span></label>
+                                <div class="input-group has-validation">
+                                    <input type="email" class="form-control" placeholder="Nhập email"
+                                           id="email" name="email"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Email không được bỏ trống
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="phone" class="form-label">Điện thoại<span
+                                        class="text-danger"> *</span></label>
+                                <div class="input-group has-validation">
+                                    <input type="text" pattern="^[0-9]{10,11}$" class="form-control"
+                                           placeholder="Nhập điện thoại"
+                                           id="phone" name="phone"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Email không được bỏ trống
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="address" class="form-label">Địa chỉ<span
+                                        class="text-danger"> *</span></label>
+                                <div class="input-group has-validation">
+                                    <input type="text" pattern="^[a-zA-ZaAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆ
+fFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ\s]{1,50}$"
+                                           class="form-control" placeholder="Nhập địa chỉ"
+                                           id="address" name="address"
+                                           required>
+                                    <div class="invalid-feedback">
+                                        Địa chỉ không được bỏ trống
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Lưu <i
+                                    class="fa-solid fa-rocket fa-bounce fa-lg" style="color: #f2df07;"></i></button>
+                    </div>
+                    </form>
+                    <div class="mx-5 mb-2">
+                        <a href="product-management"><i class="fa-solid fa-arrow-left-long fa-2xl"
+                                                        style="color: #2e2bd4;"></i> Quay lại quản lí sản phẩm</a>
                     </div>
                 </div>
+
             </div>
         </div>
+    </div>
+    </div>
 
-        <%@ include file="include/footer-dashboard.jsp" %>
+    <%@include file="include/footer-dashboard.jsp" %>
+

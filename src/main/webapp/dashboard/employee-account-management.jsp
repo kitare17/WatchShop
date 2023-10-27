@@ -24,8 +24,103 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="include/header-product-management-dashboard.jsp" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page import="java.time.format.DateTimeFormatter" %>
+<style>
+    /* === removing default button style ===*/
+    /* === removing default button style ===*/
+    .button-open {
+        margin: 0;
+        height: auto;
+        background: transparent;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+
+    }
+
+    /* button styling */
+    .button-open {
+        --border-right: 6px;
+        --text-stroke-color: rgba(255,255,255,0.6);
+        --animation-color: #37FF8B;
+        --fs-size: 20px;
+        letter-spacing: 3px;
+        text-decoration: none;
+        font-size: var(--fs-size);
+        font-family: "Arial";
+        position: relative;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1px var(--text-stroke-color);
+        border-radius: 5px;
+
+    }
+    /* this is the text, when you hover on button */
+    .hover-text-open {
+        position: absolute;
+        box-sizing: border-box;
+        content: attr(data-text);
+        color: var(--animation-color);
+        width: 0%;
+        inset: 0;
+        border-right: var(--border-right) solid var(--animation-color);
+        overflow: hidden;
+        transition: 0.5s;
+        -webkit-text-stroke: 1px var(--animation-color);
+    }
+    /* hover */
+    .button-open:hover .hover-text-open {
+        width: 100%;
+        filter: drop-shadow(0 0 23px var(--animation-color))
+    }
+
+
+    /* === removing default button style ===*/
+    .button-close {
+        margin: 0;
+        height: auto;
+        background: transparent;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* button styling */
+    .button-close {
+        --border-right: 6px;
+        --text-stroke-color: rgba(255,255,255,0.6);
+        --animation-color-c: red;
+        --fs-size: 20px;
+        letter-spacing: 3px;
+        text-decoration: none;
+        font-size: var(--fs-size);
+        font-family: "Arial";
+        position: relative;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1px var(--text-stroke-color);
+        border-radius: 5px;
+    }
+    /* this is the text, when you hover on button */
+    .hover-text-close {
+        position: absolute;
+        box-sizing: border-box;
+        content: attr(data-text);
+        color: var(--animation-color-c);
+        width: 0%;
+        inset: 0;
+        border-right: var(--border-right) solid var(--animation-color-c);
+        overflow: hidden;
+        transition: 0.5s;
+        -webkit-text-stroke: 1px var(--animation-color-c);
+    }
+    /* hover */
+    .button-close:hover .hover-text-close {
+        width: 100%;
+        filter: drop-shadow(0 0 23px var(--animation-color-c))
+    }
+
+
+</style>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
@@ -35,9 +130,11 @@
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Quản lí voucher</li>
+                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Quản lí tài khoản</a>
+                    </li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Quản lí tài khoản nhân viên</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Quản lí voucher</h6>
+                <h6 class="font-weight-bolder mb-0">Quản lí tài khoản nhân viên</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -160,86 +257,113 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>Bảng vourcher (Trang ${page}/${maxPage})</h6>
-                        <a href="voucher-create" class="fa-solid fa-circle-plus fa-xl d-flex flex-row-reverse"
-                           style="color: #d31798;"> <span style="font-family: Courier;font-size: 20px;">Mã giảm giá mới</span>
+                        <h6>Bảng quản lí nhân viên (Trang ${page}/${maxPage})</h6>
+                        <a href="product-create" class="fa-solid fa-user-plus fa-xl d-flex flex-row-reverse"
+                           style="color: #d31798;"> <span style="font-family: Courier;font-size: 20px;">Thêm tài khoản nhân viên</span>
                         </a>
+
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
                             <table class="table align-items-center mb-0">
                                 <thead>
                                 <tr>
-
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên
-                                        Voucher
+                                    <th>Ảnh đại diện</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Tên khách hàng
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Phần trăm được giảm
+                                        Tên đăng nhập
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Ngày tạo
+                                        Email
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Ngày kết thúc
+                                        Điện thoại
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Địa chỉ
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Trạng thái
                                     </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-
+                                    <th class="text-secondary text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Hành động
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${listVoucher}" var="v">
-                                    <%--    String id, String voucherName, double voucherPercent, LocalDateTime createDate, LocalDateTime closeDate, char status--%>
+
+                                <%--                                User{id=AC00000005, userName=Leo, passWord=null, fullName=Leo Đặng, email=Leo@gmail.com,--%>
+                                <%--                                role=null, phone=01234567891, status=null, avatarImg=https://img.websosanh.vn/v2/users/review/images/4wvuq0i4ozs1q.jpg?compress=85, --%>
+                                <%--                                address=128 Hoàng Diệu , Đà Nẵng, Việt Nam}--%>
+                                <c:forEach items="${listEmployee}" var="e">
 
                                     <tr>
-
+                                        <td>
+                                            <div>
+                                                <img src="${e.avatarImg}"
+                                                     class="m-2 img-thumbnail "
+                                                     style="width: 100px;" alt="user1">
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="d-flex px-2 py-1">
 
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">${v.id}</h6>
-                                                    <p class="text-xs text-secondary mb-0">${v.voucherName}</p>
+                                                    <h6 class="mb-0 text-sm">${e.fullName}</h6>
+
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0 text-left">
-                                                    <fmt:formatNumber var="price" value=" ${v.voucherPercent*100}" maxFractionDigits="1"></fmt:formatNumber>
-                                                  ${price} %</p>
+                                            <p class="text-xs font-weight-bold mb-0">${e.userName}</p>
 
                                         </td>
 
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">
-                                                ${v.createDate.format(DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd"))}
-                                             </span>
+                                            <span class="text-secondary text-xs font-weight-bold">${e.email}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">
-                                                    ${v.closeDate.format(DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd"))}
-                                            </span>
+                                            <span class="text-secondary text-xs font-weight-bold">${e.phone}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">${e.address}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-<%--                                                ${v.status}${(v.status+'') eq ('1').charAt(0)}--%>
-                                                    <c:if test="${(v.status+'') eq ('1').charAt(0)}">
-                                                        <span class="badge badge-sm bg-gradient-success ">Có thể áp dụng</span>
-                                                    </c:if>
-                                                    <c:if test="${(v.status+'') eq ('0').charAt(0)}">
-                                                        <span class="badge badge-sm bg-gradient-danger ">Dừng áp dụng</span>
-                                                    </c:if>
-
-
+                                            <c:if test="${e.status eq '1'}">
+                                                <span class="badge badge-sm bg-gradient-success ">Có thể truy cập</span>
+                                            </c:if>
+                                            <c:if test="${e.status eq '0'}">
+                                                <span class="badge badge-sm bg-gradient-danger ">Bị khóa</span>
+                                            </c:if>
                                         </td>
                                         <td class="align-middle">
-                                            <a href="product-editor?productID=${v.id}"
-                                               class="text-secondary font-weight-bold text-xs btn btn-warning"
-                                               data-toggle="tooltip" data-original-title="Edit user">
-                                                Chỉnh sửa
-                                            </a>
+                                            <c:if test="${e.status eq '1'}">
+                                                <form action="employee-account-management" method="post">
+                                                    <input type="hidden" name="action" value="lock">
+                                                    <input type="hidden" name="id" value="${e.id}">
+                                                    <input type="hidden" name="page" value="${page==null?1:page}">
+                                                    <button type="submit" class="button-close bg-secondary" data-text="Awesome">
+                                                        <span class="actual-text-close">&nbsp;Khóa&nbsp;</span>
+                                                        <span aria-hidden="true"
+                                                              class="hover-text-close">&nbsp;Khóa&nbsp;</span>
+                                                    </button>
+                                                </form>
+                                            </c:if>
+                                            <c:if test="${e.status eq '0'}">
+                                                <form action="employee-account-management" method="post">
+                                                    <input type="hidden" name="action" value="open">
+                                                    <input type="hidden" name="id" value="${e.id}">
+                                                    <input type="hidden" name="page" value="${page==null?1:page}">
+                                                    <button type="submit" class="button-open bg-secondary"
+                                                            data-text="Awesome">
+                                                        <span class="actual-text-open">&nbsp;Mở khóa&nbsp;</span>
+                                                        <span aria-hidden="true"
+                                                              class="hover-text-open">&nbsp;Mở khóa&nbsp;</span>
+                                                    </button>
+                                                </form>
+                                            </c:if>
                                         </td>
                                     </tr>
 
@@ -254,7 +378,7 @@
                                     <c:if test="${page>1}">
 
                                         <li class="page-item">
-                                            <a class="page-link" href="voucher-page?page=${page-1}"
+                                            <a class="page-link" href="employee-account-management?page=${page-1}"
                                                aria-label="Previous">
                                                 <span aria-hidden="true">&laquo;</span>
                                                 <span class="sr-only">Previous</span>
@@ -266,7 +390,7 @@
                                     <c:forEach var="i" begin="${page-1}" end="${page+1}">
                                         <c:if test="${i>=1&&i<=maxPage}">
                                             <li class="page-item"><a class="page-link"
-                                                                     href="voucher-page?page=${i}">${i}</a></li>
+                                                                     href="employee-account-management?page=${i}">${i}</a></li>
                                         </c:if>
 
                                     </c:forEach>
@@ -275,7 +399,7 @@
                                     <c:if test="${page<maxPage}">
                                         <li class="page-item">
 
-                                            <a class="page-link" href="voucher-page?page=${page+1}"
+                                            <a class="page-link" href="employee-account-management?page=${page+1}"
                                                aria-label="Next">
                                                 <span aria-hidden="true">&raquo;</span>
                                                 <span class="sr-only">Next</span>
@@ -292,3 +416,4 @@
         </div>
 
         <%@ include file="include/footer-dashboard.jsp" %>
+
