@@ -20,13 +20,35 @@ public class ShowProduct extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String indexPage = req.getParameter("index");
         String filterProduct = req.getParameter("filterProduct");
+        String priceFrom = req.getParameter("priceFrom");
+        String priceTo = req.getParameter("priceTo");
+        double from = 0.0;
+        double to = 0.0;
         int index = -1;
         if (indexPage != null) {
             index = Integer.parseInt(indexPage);
         }
 
-
-        int count = ProductRepository.getTotalProduct();
+        int count = 0;
+        if (filterProduct != null) {
+            switch (filterProduct) {
+                case "rangePrice":
+                    from = Double.parseDouble(priceFrom);
+                    to = Double.parseDouble(priceTo);
+                    count = ProductRepository.getTotalInRangeProduct(from, to);
+                    break;
+                case "sortAlphabet":
+                case "priceIncrease":
+                case "priceDecrease":
+                    count = ProductRepository.getTotalProduct();
+                    break;
+                default:
+                    count = ProductRepository.getTotalBrandProduct(filterProduct);
+                    break;
+            }
+        } else {
+            count = ProductRepository.getTotalProduct();
+        }
         int endPage = count / 9;
         if (count % 9 != 0) {
             endPage++;
@@ -44,22 +66,18 @@ public class ShowProduct extends HttpServlet {
 
             if (filterProduct.equals("sortAlphabet")) {
                 productList = ProductRepository.getAllProductSortByName(index);
-                url += "?filterProduct=" +filterProduct + "&";
+                url += "?filterProduct=" + filterProduct + "&";
             } else if (filterProduct.equals("priceIncrease")) {
-                url += "?filterProduct=" +filterProduct + "&";
+                url += "?filterProduct=" + filterProduct + "&";
                 productList = ProductRepository.getAllProductIncrease(index);
             } else if (filterProduct.equals("priceDecrease")) {
-                url += "?filterProduct=" +filterProduct + "&";
+                url += "?filterProduct=" + filterProduct + "&";
                 productList = ProductRepository.getAllProductDecrease(index);
             } else if (filterProduct.equals("rangePrice")) {
-                String priceFrom = req.getParameter("priceFrom");
-                String priceTo = req.getParameter("priceTo");
-                double from = Double.parseDouble(priceFrom);
-                double to = Double.parseDouble(priceTo);
-                url += "?filterProduct=" +filterProduct + "&priceFrom=" + priceFrom + "&priceTo=" + priceTo + "&";
+                url += "?filterProduct=" + filterProduct + "&priceFrom=" + priceFrom + "&priceTo=" + priceTo + "&";
                 productList = ProductRepository.getAllProductInRange(from, to, index);
             } else if (filterProduct.equals(filterProduct)) {
-                url += "?filterProduct=" +filterProduct + "&";
+                url += "?filterProduct=" + filterProduct + "&";
                 productList = ProductRepository.getAllProductByBrand(filterProduct, index);
             }
         } else {
