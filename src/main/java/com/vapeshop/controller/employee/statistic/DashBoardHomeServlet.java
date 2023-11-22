@@ -2,6 +2,8 @@ package com.vapeshop.controller.employee.statistic;
 
 import com.vapeshop.entity.ProductType;
 import com.vapeshop.entity.statistic.MoneyWithMonth;
+import com.vapeshop.entity.statistic.MoneyWithWeek;
+import com.vapeshop.entity.statistic.Top10MostPurchased;
 import com.vapeshop.respository.employee.StatisticalRespository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -24,6 +26,7 @@ public class DashBoardHomeServlet extends HttpServlet {
         double totalMoneyOnMonth = StatisticalRespository.totalMoneyOnMonth();
         double totalMoneyToday = StatisticalRespository.totalMoneyToday();
         MoneyWithMonth moneyWithMonth = StatisticalRespository.totalMoneyOnEachMonth();
+        MoneyWithMonth moneyWithMonthLastYear = StatisticalRespository.totalMoneyOnEachMonthLastYear();
         int totalEmployeeWorking = StatisticalRespository.totalEmployeeWorking();
         ArrayList<ProductType> top5ProductTypeBestSellOnMonth = StatisticalRespository.top5ProductTypeBestSellOnMonth();
         double totalMoneyJuiceInYear = StatisticalRespository.totalMoneyJuiceInYear();
@@ -31,15 +34,24 @@ public class DashBoardHomeServlet extends HttpServlet {
         double totalMoneyInYear = StatisticalRespository.totalMoneyInYear();
         double totalMoneyBeforeYear = StatisticalRespository.totalMoneyBeforeYear();
         double totalMoneyVapeInYear = StatisticalRespository.totalMoneyVapeInYear();
-        int totalCustomerIsLocked= StatisticalRespository.totalCustomerIsLocked();
+        int totalCustomerIsLocked = StatisticalRespository.totalCustomerIsLocked();
+        MoneyWithWeek moneyWithWeek = StatisticalRespository.totalMoneyOnEachWeek();
+        Top10MostPurchased top10MostPurchased=StatisticalRespository.top10MostPurchased();
 
+
+        request.setAttribute("top10MostPurchased", top10MostPurchased);
+        //
+        request.setAttribute("moneyWithMonthLastYear", moneyWithMonthLastYear);
+        //
+        request.setAttribute("moneyWithWeek", moneyWithWeek);
+        //
         request.setAttribute("productAmountChart", productAmountChart);
+        //
         request.setAttribute("totalUser", totalUser);
         //
         request.setAttribute("totalMoneyBeforeMonth", totalMoneyBeforeMonth);
         //
         request.setAttribute("totalMoneyOnMonth", totalMoneyOnMonth);
-
         //
         request.setAttribute("totalMoneyToday", totalMoneyToday);
         //
