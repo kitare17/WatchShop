@@ -26,6 +26,7 @@
 <%@ include file="include/header-product-management-dashboard.jsp" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="en_US"/>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
@@ -42,7 +43,7 @@
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                     <div class="input-group">
-                        <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                      
                     </div>
                 </div>
                 <ul class="navbar-nav  justify-content-end">
@@ -163,6 +164,11 @@
                                                   style="color: #0452d7;"></i></h3>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-success" href="download-order?filepath=${downloadUrl}&orderId=${order.orderId}" download>
+                               Xuất hóa đơn
+                            </a>
+                        </div>
                         <div class="table-responsive p-0">
                             <table class="table align-items-center mb-0 p-5">
                                 <tbody>
@@ -199,7 +205,10 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <h6 class="mb-0 text-lg">${order.createDate}</h6>
+                                        <h6 class="mb-0 text-lg">
+                                            ${order.createDate.format(DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd"))}
+
+                                        </h6>
                                     </td>
                                 </tr>
 
@@ -271,6 +280,19 @@
                                     </td>
                                     <td>
                                         <h6 class="mb-0 text-lg">${order.orderAddress}</h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-lg">Số điện thoại</h6>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h6 class="mb-0 text-lg">${order.user.phone}</h6>
                                     </td>
                                 </tr>
                                 </tbody>

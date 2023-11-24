@@ -39,10 +39,17 @@
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                    <form id="searchForm"  onsubmit="submitSearch()" action="product-search" method="get">
                     <div class="input-group">
                         <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" placeholder="Type here...">
+<%--                        <input type="text" class="form-control" placeholder="Type here...">--%>
+
+
+
+                            <input id="search" maxlength="10" class="form-control" name="search" placeholder="Nhập mã sản phẩm" />
+
                     </div>
+                    </form>
                 </div>
                 <ul class="navbar-nav  justify-content-end">
 
@@ -158,7 +165,11 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6 class="text-lg">Bảng sản phẩm (Trang ${page}/${maxPage})</h6>
+                        <div>
+                            <h6 class="text-lg">Bảng sản phẩm (Trang ${page}/${maxPage})</h6>
+                            <span class="badge bg-danger"><a href="product-out-of-stock" class="text-white text-lg">Xem Sản phẩm gần hết hàng</a></span>
+                        </div>
+
                         <a href="product-create" class="fa-solid fa-circle-plus fa-xl d-flex flex-row-reverse"
                            style="color: #d31798;"> <span style="font-family: Courier;font-size: 20px;">Thêm  sản phẩm mới</span>
                         </a>
@@ -281,5 +292,15 @@
                 </div>
             </div>
         </div>
-
+        <script>
+            function submitSearch(){
+                document.getElementById("search").addEventListener("keyup", function(event) {
+                    if (event.keyCode === 13) {
+                        var x = document.getElementById("searchForm");
+                        x.submit();
+                        return false;
+                    }
+                });
+            }
+        </script>
         <%@ include file="include/footer-dashboard.jsp" %>

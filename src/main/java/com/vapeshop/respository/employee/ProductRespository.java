@@ -455,8 +455,7 @@ public class ProductRespository {
     public static int getProductTypeRealAmount(String productTypeId) {
         int amount = 0;
         try {
-            String query = "select sum (quantity) from ImportProduct \n" +
-                    "where product_type_id = ? ";
+            String query = "select dbo.remainingAmount(?) as 'amount' ";
             Connection connection = DBConnect.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, productTypeId);
@@ -608,9 +607,108 @@ public class ProductRespository {
         return productType;
     }
 
+    public static ArrayList<ProductType> getProductTypeOutOfStockPage(int page) {
+        ArrayList<ProductType> productTypes = null;
+        try {
+            String query = "select pt.Id,pt.name,p.product_name,pt.status,pt.price,dbo.remainingAmount(pt.Id) as 'remaining_amount' from ProductType pt\n" +
+                    "join Product P on P.Id = pt.product_id\n" +
+                    "where dbo.remainingAmount(pt.Id)<=10\n" +
+                    "order by  pt.Id\n" +
+                    "OFFSET (?-1)*10 ROWS\n" +
+                    "FETCH FIRST 10 ROWS ONLY";
+
+            Connection connection = DBConnect.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, page);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            productTypes = new ArrayList<>();
+            while (rs.next()) {
+                String productTypeId = rs.getString("Id");
+                String productName = rs.getString("product_name");
+                String productTypeStatus = rs.getString("status");
+                int realAmount = rs.getInt("remaining_amount");
+                double price = rs.getDouble("price");
+                ProductType productType = new ProductType();
+                productType.setProductTypeId(productTypeId);
+                productType.setTypeName(productName);
+                productType.setTypeStatus(productTypeStatus.charAt(0));
+                productType.setTypePrice(price);
+                productType.setRealAmount(realAmount);
+                Product product = new Product();
+                product.setProductName(productName);
+                productType.setProduct(product);
+                ArrayList<ImageProduct> imageProducts = getImgProductType(productTypeId);
+                productType.setImageProducts(imageProducts);
+                productTypes.add(productType);
+            }
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return productTypes;
+    }
+
+    public static int getProductTypeOutOfStockAmount() {
+        int amount = 0;
+        try {
+            String query = "\n" +
+                    "select count(1) from ProductType pt\n" +
+                    "join Product P on P.Id = pt.product_id\n" +
+                    "where dbo.remainingAmount(pt.Id)<=10";
+
+            Connection connection = DBConnect.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                amount = rs.getInt(1);
+            }
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return amount;
+    }
+
+    public static boolean checkExistProduct(String productId) {
+        boolean check = false;
+
+        try {
+            String query = "select * from Product where Id=?";
+            Connection connection = DBConnect.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, productId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                check = true;
+            }
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
+    public static boolean checkExistProductType(String productTypeId) {
+        boolean check = false;
+
+        try {
+            String query = "select * from ProductType where Id=?";
+            Connection connection = DBConnect.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, productTypeId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                check = true;
+            }
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
 
     public static void main(String[] args) {
-
-        getImportList("A00000001A", 1).stream().forEach(System.out::println);
+        System.out.println(checkExistProduct("A00000001"));
+//        getImportList("A00000001A", 1).stream().forEach(System.out::println);
     }
 }
