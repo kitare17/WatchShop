@@ -73,13 +73,13 @@
                                 <img class="card-img rounded-0 img-fluid" src="${pl.imageProducts.get(0).imageUrl}">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i
-                                                class="far fa-heart"></i></a></li>
+<%--                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i--%>
+<%--                                                class="far fa-heart"></i></a></li>--%>
                                         <li><a class="btn btn-success text-white mt-2"
                                                href="ShowProductDetails?idProduct=${pl.product.idProduct}&brand=${pl.product.brand}"><i
                                                 class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
-                                                class="fas fa-cart-plus"></i></a></li>
+<%--                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i--%>
+<%--                                                class="fas fa-cart-plus"></i></a></li>--%>
                                     </ul>
                                 </div>
                             </div>
@@ -115,10 +115,10 @@
                 </c:forEach>
             </div>
             <%--      End Product--%>
-            <div div="row">
+            <div class="row">
                 <ul class="pagination pagination-lg justify-content-end ">
                     <c:if test="${tag>1}">
-                        <li class="page-item ">
+                        <li class="page-item">
                             <a class="page-link rounded-0 mr-3 shadow-sm  text-dark" href="${url}index=${tag-1}"
                                tabindex="-1"><i class="text-dark fas fa-chevron-left"></i></a>
                         </li>
