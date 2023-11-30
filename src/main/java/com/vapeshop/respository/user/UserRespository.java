@@ -232,9 +232,9 @@ public class UserRespository {
             ps.setString(4, fullName);
             ps.setString(5, email);
             ps.setString(6, role);
-            ps.setString(7, phone);
+            ps.setString(7, "0123456789");
             ps.setString(8, status);
-            ps.setString(9, avatarImg);
+            ps.setString(9, "https://www.seiu1000.org/sites/main/files/imagecache/hero/main-images/camera_lense_0.jpeg");
             ps.setString(10, address);
             ps.executeUpdate();
 
@@ -337,6 +337,22 @@ public class UserRespository {
         }
 
             return check;
+    }
+
+    public static void updateAvatar(String userId,String imgUrl){
+        try {
+            String query="update UserInfo set avata_img=? where id=?";
+            Connection con=DBConnect.getConnection();
+            PreparedStatement preparedStatement= con.prepareStatement(query);
+            preparedStatement.setString(1,imgUrl);
+            preparedStatement.setString(2,userId);
+            preparedStatement.executeUpdate();
+
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     public static void main(String[] args) {
         // Gọi phương thức setIDDatabase và cung cấp chuỗi đầu vào "AC00000999"
