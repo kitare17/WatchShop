@@ -7,7 +7,7 @@
     <div class="row">
 
       <div class="col-md-4 pt-5">
-        <h2 class="h2 text-success border-bottom pb-3 border-light logo" style="text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">VapeShop</h2>
+        <h2 class="h2 text-success border-bottom pb-3 border-light logo" style="text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">WatchShop</h2>
         <ul class="list-unstyled text-light footer-link-list">
           <li>
             <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -27,13 +27,14 @@
       <div class="col-md-4 pt-5">
         <h2 class="h2 text-light border-bottom pb-3 border-light">Thương Hiệu</h2>
         <ul class="list-unstyled text-light footer-link-list">
-          <li><a class="text-decoration-none" href="#">Aspire</a></li>
-          <li><a class="text-decoration-none" href="#">Dotmod</a></li>
-          <li><a class="text-decoration-none" href="#">Freemax</a></li>
-          <li><a class="text-decoration-none" href="#">Geekvape</a></li>
-          <li><a class="text-decoration-none" href="#">Nevoks</a></li>
-          <li><a class="text-decoration-none" href="#">Oxva</a></li>
-          <li><a class="text-decoration-none" href="#">Wotofo</a></li>
+          <ul class="list-unstyled text-light footer-link-list">
+            <li><a class="text-decoration-none" href="#">Casio</a></li>
+            <li><a class="text-decoration-none" href="#">Tudor </a></li>
+            <li><a class="text-decoration-none" href="#">Seiko </a></li>
+            <li><a class="text-decoration-none" href="#">Citizen </a></li>
+            <li><a class="text-decoration-none" href="#">Orient </a></li>
+            <li><a class="text-decoration-none" href="#">Oxva</a></li>
+          </ul>
         </ul>
       </div>
 
@@ -86,7 +87,7 @@
         <div class="col-12">
           <p class="text-left text-light">
             Copyright &copy; 2023 Company Name
-            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">VapeShop Team</a>
+            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">WatchShop Team</a>
           </p>
         </div>
       </div>

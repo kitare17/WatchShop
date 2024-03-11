@@ -21,7 +21,8 @@ public class DashBoardHomeServlet extends HttpServlet {
 
 
         int totalUser = StatisticalRespository.totalUser();
-        int[] productAmountChart = StatisticalRespository.productAmountChart();
+
+
         double totalMoneyBeforeMonth = StatisticalRespository.totalMoneyBeforeMonth();
         double totalMoneyOnMonth = StatisticalRespository.totalMoneyOnMonth();
         double totalMoneyToday = StatisticalRespository.totalMoneyToday();
@@ -29,11 +30,10 @@ public class DashBoardHomeServlet extends HttpServlet {
         MoneyWithMonth moneyWithMonthLastYear = StatisticalRespository.totalMoneyOnEachMonthLastYear();
         int totalEmployeeWorking = StatisticalRespository.totalEmployeeWorking();
         ArrayList<ProductType> top5ProductTypeBestSellOnMonth = StatisticalRespository.top5ProductTypeBestSellOnMonth();
-        double totalMoneyJuiceInYear = StatisticalRespository.totalMoneyJuiceInYear();
-        double totalMoneyAccessoryInYear = StatisticalRespository.totalMoneyAccessoryInYear();
+
         double totalMoneyInYear = StatisticalRespository.totalMoneyInYear();
         double totalMoneyBeforeYear = StatisticalRespository.totalMoneyBeforeYear();
-        double totalMoneyVapeInYear = StatisticalRespository.totalMoneyVapeInYear();
+
         int totalCustomerIsLocked = StatisticalRespository.totalCustomerIsLocked();
         MoneyWithWeek moneyWithWeek = StatisticalRespository.totalMoneyOnEachWeek();
         Top10MostPurchased top10MostPurchased = StatisticalRespository.top10MostPurchased();
@@ -57,7 +57,7 @@ public class DashBoardHomeServlet extends HttpServlet {
         //
         request.setAttribute("moneyWithWeek", moneyWithWeek);
         //
-        request.setAttribute("productAmountChart", productAmountChart);
+
         //
         request.setAttribute("totalUser", totalUser);
         //
@@ -73,15 +73,15 @@ public class DashBoardHomeServlet extends HttpServlet {
         //
         request.setAttribute("top5ProductTypeBestSellOnMonth", top5ProductTypeBestSellOnMonth);
         //
-        request.setAttribute("totalMoneyJuiceInYear", totalMoneyJuiceInYear);
+//        request.setAttribute("totalMoneyJuiceInYear", totalMoneyJuiceInYear);
         //
-        request.setAttribute("totalMoneyAccessoryInYear", totalMoneyAccessoryInYear);
+//        request.setAttribute("totalMoneyAccessoryInYear", totalMoneyAccessoryInYear);
         //
         request.setAttribute("totalMoneyInYear", totalMoneyInYear);
         //
         request.setAttribute("totalMoneyBeforeYear", totalMoneyBeforeYear);
         //
-        request.setAttribute("totalMoneyVapeInYear", totalMoneyVapeInYear);
+//        request.setAttribute("totalMoneyVapeInYear", totalMoneyVapeInYear);
         //
         request.setAttribute("totalCustomerIsLocked", totalCustomerIsLocked);
         request.getRequestDispatcher("dashboard/dashboard-home.jsp").forward(request, response);

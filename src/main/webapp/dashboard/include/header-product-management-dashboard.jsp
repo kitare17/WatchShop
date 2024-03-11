@@ -40,8 +40,8 @@
            aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="dashboard-home"
         >
-            <img src="dashboard/assets/img/vape-icon.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold">VapeShop Dashboard</span>
+            <img src="https://img.icons8.com/?size=256&id=A3c04Fnghx1E&format=png" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="ms-1 font-weight-bold">WatchShop Dashboard</span>
         </a>
     </div>
     <hr class="horizontal dark mt-0">
