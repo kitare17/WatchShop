@@ -6,10 +6,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnect {
-    public static String dbName = "VapeShopDB";
+    public static String dbName = "WatchShopDB";
     public static String portNumber = "1433";
     public static String userID = "sa";
-    public static String password = "123456789";
+    public static String password = "khoa123456789A";
 
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         String url = "jdbc:sqlserver://localhost:1433;" + "databaseName=" + dbName + ";encrypt=false";
