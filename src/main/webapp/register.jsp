@@ -27,16 +27,12 @@
         <!--------------------------- Left Box ----------------------------->
 
         <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-             style="background: #464953;">
-            <div class="featured-image mb-3">
-                <img src="assets/img/vapeShop.jpg" class="img-fluid rounded-circle" style="width: 250px;">
-            </div>
+             style="
+                    background-image: url('https://i.pinimg.com/originals/a9/38/61/a93861b341b925eb32fcd539a3b18761.png');
+                    background-repeat: no-repeat;
+                    background-size: inherit;
+                   ">
 
-            <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">
-                VAPE-Register</p>
-            <small class="text-white text-wrap text-center"
-                   style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Vaping is a smart choice for
-                lifestyle change without compromising health.</small>
         </div>
 
         <!-------------------- ------ Right Box ---------------------------->
