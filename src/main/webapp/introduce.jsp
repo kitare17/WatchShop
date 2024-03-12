@@ -40,7 +40,7 @@
           <div class="col-md-12 mb-0 d-flex align-items-center"
                style="background-size: cover; margin-top: 3%">
             <img class="img-fluid"
-                 src="https://cdn6.f-cdn.com/contestentries/1470823/17506344/5c5b224753e39_thumb900.jpg"
+                 src="https://donghotantan.vn/images/products/manufactories//large/banner-casio_1664867668.jpg"
                  alt="">
           </div>
         </div>
@@ -52,7 +52,7 @@
           <div class="col-md-12 mb-0 d-flex align-items-center"
                style="background-size: cover; margin-top: 3%">
             <img class="img-fluid"
-                 src="https://cdn2.f-cdn.com/contestentries/1470823/19271572/5c5da29b97a9c_thumb900.jpg"
+                 src="https://gshock.casio.com/content/casio/locales/us/en/brands/gshock/products/type/digital-dress-watches/_jcr_content/root/responsivegrid/container_1689197747_694707549/teaser.casiocoreimg.jpeg/1660152378505/digital-dress-watches-banner-pc.jpeg"
                  alt="">
           </div>
         </div>
@@ -64,7 +64,7 @@
           <div class="col-md-12 mb-0 d-flex align-items-center"
                style="background-size: cover; margin-top: 3%">
             <img class="img-fluid"
-                 src="https://cdn3.f-cdn.com/contestentries/1470823/19271572/5c5d9fa53719e_thumb900.jpg"
+                 src="https://watches.ae/cdn/shop/collections/1420_x_450_Gshock_banner.jpg?v=1706870969
                  alt="">
           </div>
         </div>
@@ -87,7 +87,7 @@
          style="background-color: #F6F5F2; border-radius: 15px">
       <div class="col-lg-6">
         <div class="image-holder mb-4 jarallax">
-          <img src="https://turtlegrass.net/wp-content/uploads/2023/04/top-10-shop-thuoc-la-dien-tu-chinh-hang-uy-tin-nhat-Viet-Nam.jpg"
+          <img src="https://media.shopdongho.com/2020/01/gioi-thieu-showroom-di-an-01.jpg"
                style="border-radius: 10px 3px 3px 10px"
                alt="single" class="img-fluid jarallax-img">
         </div>
@@ -95,13 +95,13 @@
       <div class="col-lg-6">
         <div class="detail p-5">
           <div class="display-header">
-            <h2 class="display-2 text-uppercase text-dark pb-2" style="font-family: Algerian">"Vape
+            <h2 class="display-2 text-uppercase text-dark pb-2" style="font-family: Algerian">"Watch
               shop"</h2>
-            <p class="pb-3"> Giới Thiệu <span style="font-family: Algerian">Vape Shop</span> - Nơi Đam Mê
+            <p class="pb-3"> Giới Thiệu <span style="font-family: Algerian">Watch Shop</span> - Nơi Đam Mê
               Gặp Gỡ và Khám Phá.</p>
-            <p>Chào mừng bạn đến với <span style="font-family: Algerian">"Vape Shop"</span> - nơi đẳng cấp
-              cho những người yêu thích và tìm kiếm trải nghiệm vape tuyệt vời.</p>
-            <p>Chúng tôi tự hào là địa chỉ lý tưởng cho cộng đồng vape, nơi mà đam mê hội tụ và sự sáng tạo
+            <p>Chào mừng bạn đến với <span style="font-family: Algerian">"Watch Shop"</span> - nơi đẳng cấp
+              cho những người yêu thích và tìm kiếm trải nghiệm đồng hồ tuyệt vời.</p>
+            <p>Chúng tôi tự hào là địa chỉ lý tưởng cho cộng đồng casio, nơi mà đam mê hội tụ và sự sáng tạo
               bùng nổ.</p>
           </div>
         </div>
@@ -115,20 +115,20 @@
     <div class="col-md-12">
       <p>
         <strong>
-                    <span style="font-size: 20px">VapeShop là chuỗi cửa hàng chuyên buôn bán các thiết bị thuốc lá điện tử như Vape,
-                        Pod System cùng tinh dầu Vape và phụ kiện đi kèm chính hãng, uy tín. Chúng tôi luôn cam kết về những sản phẩm tại VietVape sẽ luôn được nghiên cứu,
+                    <span style="font-size: 20px">WatchShop là chuỗi cửa hàng chuyên buôn bán các thiết bị đồng hồ đeo tay Casio,
+                        Edifice,G-Shock và phụ kiện đi kèm chính hãng, uy tín. Chúng tôi luôn cam kết về những sản phẩm tại Watchshop sẽ luôn được nghiên cứu,
                         tìm hiểu cũng như đưa ra thị trường những sản phẩm chất lượng nhất và phù hợp nhất với đại đa số khách hàng.</span>
         </strong>
       </p>
       <p style="text-align: center; margin-top: 30px">
                 <span>
-                    <img src="https://dotnettipoftheday.org/wp-content/uploads/2023/04/luu-y-khi-chon-shop-vape.jpg"
-                         alt="shop vape chính hãng" style="border-radius: 5px; width: 60%">
+                    <img src="https://fridayshopping.vn/wp-content/uploads/2021/06/avatar-2.jpg"
+                         alt="Đồng hồ Casio, Edifice, G-shock chính hãng" style="border-radius: 5px; width: 60%">
                 </span>
       </p>
       <p style="text-align: center">
                 <span style="font-size:17px; font-weight: 500">
-                    <em>Hệ thống ShopVape uy tín chính hãng</em>
+                    <em>Đồng hồ Casio, Edifice, G-shock chính hãng</em>
                 </span>
       </p>
       <p>
@@ -136,8 +136,8 @@
                     <span style="font-size: 18px">
                     Với nhu cầu thị trường ngày càng tăng cao, chúng tôi luôn luôn đổi mới,
                     cập nhật và thay đổi sản phẩm, công nghệ giúp đảm bảo nhu cầu người dùng luôn hoàn mỹ nhất.
-                    Tuy nhiên, VietVape cũng luôn thấu hiểu và dốc hết sức mình để bất kì nhu cầu dù mới hay cũ,
-                    từ những loại phụ kiện đời mới đến khó tìm đều có mặt tại các cửa hàng,
+                    Tuy nhiên, Watchshop cũng luôn thấu hiểu và dốc hết sức mình để bất kì nhu cầu dù mới hay cũ,
+                    từ những loại đồng hồ đời mới đến khó tìm đều có mặt tại các cửa hàng,
                     giúp khách hàng không phải băn khoăn và khó khăn khi tìm kiếm.
                     </span>
         </strong>
@@ -146,8 +146,8 @@
         <strong>
                     <span style="font-size: 18px">
                         Chưa dừng lại đó, với mong muốn sẽ là nơi uy tín,
-                        chính hãng mỗi khi nhắc đến Vape,Pod và thuốc lá điện tử,
-                        chúng tôi luôn cố gắng từng ngày để tối ưu hoá cả về trang mạng điện tử vapeshop.vn lẫn xây dựng chuỗi cửa hàng bán lẻ trên toàn quốc.
+                        chính hãng mỗi khi nhắc đến dòng đồng hồ Casio chính hãng,
+                        chúng tôi luôn cố gắng từng ngày để tối ưu hoá cả về trang mạng điện tử Watchshop.vn lẫn xây dựng chuỗi cửa hàng bán lẻ trên toàn quốc.
                     </span>
         </strong>
       </p>
@@ -161,7 +161,7 @@
       </p>
       <p style="text-align: center; margin-top: 30px">
                 <span>
-                    <img src="https://stjohnchurchnj.com/wp-content/uploads/2022/10/vape-shop-uy-tin.jpg" alt="" style="border-radius: 5px; width: 60%">
+                    <img src="https://top10danang.com/wp-content/uploads/2023/08/top-10-cua-hang-dong-ho-casio-chinh-hang-tai-da-nang-gia-tot-top10danang.jpg" alt="" style="border-radius: 5px; width: 60%">
                 </span>
       </p>
       <p style="text-align: center">
@@ -187,12 +187,12 @@
       </p>
       <p style="text-align: center; margin-top: 30px">
                 <span>
-                    <img src="https://whmi.com/dbphotos/displaywidth/6b1a5bb9344bc8c5028feaef90476da1/600/a.jpg" alt="" style="width: 60%; border-radius: 5px">
+                    <img src="https://cf.shopee.vn/file/399e46dd9f4b6972e62dc9e48dae993d" alt="" style="width: 60%; border-radius: 5px">
                 </span>
       </p>
       <p style="text-align: center">
                 <span style="font-size: 17px; font-weight: 500">
-                    <em>Xây dựng chuỗi cửa hàng bán lẻ Vape Pod uy tín trên cả nước</em>
+                    <em>Xây dựng chuỗi cửa hàng bán lẻ Casio uy tín trên cả nước</em>
                 </span>
       </p>
     </div>
@@ -201,32 +201,32 @@
 
 
 <!-- Start Categories of The Month -->
-<section class="container py-5">
-  <div class="row text-center pt-3 ">
-    <div class="col-lg-6 m-auto">
-      <h1 class="h1" style="font-family: Bahnschrift">Những founder và co-founder của Vapeshop</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-md-4 p-5 mt-3">
-      <a href="#"><img src="https://vn.smissvape.com/uploads/202235368/magnetic-e-pod34088252001.jpg"
-                       class="rounded-circle img-fluid border"></a>
-      <h5 class="text-center mt-3 mb-3"></h5>
-    </div>
-    <div class="col-12 col-md-4 p-5 mt-3 ">
-      <a href="#"><img
-              src="https://vn.newecigarettes.com/uploads/202125334/4500-puffs-electronic-e-cigarette02373276289.jpg"
-              class="rounded-circle img-fluid border"></a>
-      <h2 class="h5 text-center mt-3 mb-3"></h2>
-    </div>
-    <div class="col-12 col-md-4 p-5 mt-3">
-      <a href="#"><img
-              src="https://www.vapewholesaleglobal.com/cdn/shop/products/Geekvape-T200-Aegis-Touch-Box-Mod-kit-6-111166_1024x.jpg?v=1662610441"
-              class="rounded-circle img-fluid border"></a>
-      <h2 class="h5 text-center mt-3 mb-3"></h2>
-    </div>
-  </div>
-</section>
+<%--<section class="container py-5">--%>
+<%--  <div class="row text-center pt-3 ">--%>
+<%--    <div class="col-lg-6 m-auto">--%>
+<%--      <h1 class="h1" style="font-family: Bahnschrift">Những founder và co-founder của Vapeshop</h1>--%>
+<%--    </div>--%>
+<%--  </div>--%>
+<%--  <div class="row">--%>
+<%--    <div class="col-12 col-md-4 p-5 mt-3">--%>
+<%--      <a href="#"><img src="https://vn.smissvape.com/uploads/202235368/magnetic-e-pod34088252001.jpg"--%>
+<%--                       class="rounded-circle img-fluid border"></a>--%>
+<%--      <h5 class="text-center mt-3 mb-3"></h5>--%>
+<%--    </div>--%>
+<%--    <div class="col-12 col-md-4 p-5 mt-3 ">--%>
+<%--      <a href="#"><img--%>
+<%--              src="https://vn.newecigarettes.com/uploads/202125334/4500-puffs-electronic-e-cigarette02373276289.jpg"--%>
+<%--              class="rounded-circle img-fluid border"></a>--%>
+<%--      <h2 class="h5 text-center mt-3 mb-3"></h2>--%>
+<%--    </div>--%>
+<%--    <div class="col-12 col-md-4 p-5 mt-3">--%>
+<%--      <a href="#"><img--%>
+<%--              src="https://www.vapewholesaleglobal.com/cdn/shop/products/Geekvape-T200-Aegis-Touch-Box-Mod-kit-6-111166_1024x.jpg?v=1662610441"--%>
+<%--              class="rounded-circle img-fluid border"></a>--%>
+<%--      <h2 class="h5 text-center mt-3 mb-3"></h2>--%>
+<%--    </div>--%>
+<%--  </div>--%>
+<%--</section>--%>
 
 <!-- End Categories of The Month -->
 
